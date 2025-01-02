@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CRUD-REACT-MockAPI/static/css/main.acb6bc02.css",
+    "main.js": "/CRUD-REACT-MockAPI/static/js/main.33785a2a.js",
+    "index.html": "/CRUD-REACT-MockAPI/index.html",
+    "main.acb6bc02.css.map": "/CRUD-REACT-MockAPI/static/css/main.acb6bc02.css.map",
+    "main.33785a2a.js.map": "/CRUD-REACT-MockAPI/static/js/main.33785a2a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.acb6bc02.css",
+    "static/js/main.33785a2a.js"
+  ]
+}

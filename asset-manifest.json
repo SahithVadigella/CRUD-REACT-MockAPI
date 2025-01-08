@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/CRUD-REACT-MockAPI/static/css/main.acb6bc02.css",
-    "main.js": "/CRUD-REACT-MockAPI/static/js/main.f7f65b44.js",
+    "main.css": "/CRUD-REACT-MockAPI/static/css/main.7822708c.css",
+    "main.js": "/CRUD-REACT-MockAPI/static/js/main.ba980a56.js",
     "index.html": "/CRUD-REACT-MockAPI/index.html",
-    "main.acb6bc02.css.map": "/CRUD-REACT-MockAPI/static/css/main.acb6bc02.css.map",
-    "main.f7f65b44.js.map": "/CRUD-REACT-MockAPI/static/js/main.f7f65b44.js.map"
+    "main.7822708c.css.map": "/CRUD-REACT-MockAPI/static/css/main.7822708c.css.map",
+    "main.ba980a56.js.map": "/CRUD-REACT-MockAPI/static/js/main.ba980a56.js.map"
   },
   "entrypoints": [
-    "static/css/main.acb6bc02.css",
-    "static/js/main.f7f65b44.js"
+    "static/css/main.7822708c.css",
+    "static/js/main.ba980a56.js"
   ]
 }

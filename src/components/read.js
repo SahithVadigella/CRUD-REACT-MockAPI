@@ -1,78 +1,62 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import './read.css';
 
 export default function Read() {
   const [apiData, setApiData] = useState([]);
+
   useEffect(() => {
-    axios
-      .get("https://676a644e863eaa5ac0de3551.mockapi.io/crud")
+    axios.get("https://676a644e863eaa5ac0de3551.mockapi.io/reglogin")
       .then((getData) => {
         setApiData(getData.data);
+      }).catch((error) => {
+        console.error("Error fetching data:", error);
       });
-  });
+  }, []);
+
   const setID = (id) => {
     console.log(id);
     localStorage.setItem("ID", id);
   };
 
-  const getData = () => {
-    axios
-      .get("https://676a644e863eaa5ac0de3551.mockapi.io/crud")
-      .then((getData) => {
-        setApiData(getData.data);
+  const onDelete = (id) => {
+    axios.delete(`https://676a644e863eaa5ac0de3551.mockapi.io/reglogin/${id}`)
+      .then(() => {
+        setApiData(apiData.filter((data) => data.id !== id));
+      }).catch((error) => {
+        console.error("Error deleting data:", error);
       });
   };
 
-  const onDelete = (id) => {
-    axios.delete(`https://676a644e863eaa5ac0de3551.mockapi.io/crud/${id}`)
-    .then(
-        ()=>{
-            getData();
-        }
-    )
-  }
   return (
     <div>
-      <table class="ui celled table">
+      <table className="ui celled table">
         <thead>
           <tr>
-            <th style={{ margin: 40, padding: 25 }}>Ser. num</th>
-            <th style={{ margin: 40, padding: 25 }}>FirstName</th>
-            <th style={{ margin: 40, padding: 25 }}>LastName</th>
-            <th style={{ margin: 40, padding: 25 }}>Update</th>
-            <th style={{ margin: 40, padding: 25 }}>Delete</th>
+            <th>Serial Num</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           {apiData.map((data) => {
             return (
-              <tr>
-                <td data-label="id" style={{ margin: 40, padding: 30 }}>
-                  {data.id}
-                </td>
-                <td data-label="fName" style={{ margin: 40, padding: 30 }}>
-                  {data.firstName}
-                </td>
-                <td data-label="lName" style={{ margin: 40, padding: 30 }}>
-                  {data.lastName}
-                </td>
-                <td data-label="update">
+              <tr key={data.id}>
+                <td>{data.id}</td>
+                <td>{data.name}</td>
+                <td>{data.email}</td>
+                <td>{data.dob}</td>
+                <td>
                   <Link to="/update">
-                    <button
-                      style={{ color: "green" }}
-                      onClick={() => setID(data.id)}
-                    >
-                      Update
-                    </button>
+                    <button onClick={() => setID(data.id)}>Update</button>
                   </Link>
                 </td>
-                <td data-label="delete">
-                  
-                    <button style={{ color: "red" }}
-                    onClick={() => onDelete(data.id)}>Delete</button>
-                  
+                <td>
+                  <button onClick={() => onDelete(data.id)}>Delete</button>
                 </td>
               </tr>
             );
